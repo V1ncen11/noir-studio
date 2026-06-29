@@ -30,7 +30,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 1.4, ease: "easeOut" }}
-          className="text-4xl md:text-6xl lg:text-7xl font-sans font-medium text-white tracking-tight"
+          className="text-3xl md:text-5xl lg:text-6xl font-sans font-medium text-white tracking-tight"
         >
           Visuals Before Words.
         </motion.h1>
