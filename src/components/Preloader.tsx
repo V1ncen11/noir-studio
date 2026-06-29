@@ -6,10 +6,10 @@ export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Shorter loading time
+    // Hold logo a bit longer before fade
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1200);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
