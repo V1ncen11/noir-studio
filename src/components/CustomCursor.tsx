@@ -10,8 +10,8 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Apply spring physics directly to the motion values
-  const springConfig = { damping: 25, stiffness: 700, mass: 0.1 };
+  // Apply spring physics directly to the motion values (smoother easing)
+  const springConfig = { damping: 35, stiffness: 400, mass: 0.3 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -52,9 +52,9 @@ export default function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          width: isHovering ? 80 : 16,
-          height: isHovering ? 80 : 16,
-          backgroundColor: isHovering ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 1)",
+          width: isHovering ? 80 : 12,
+          height: isHovering ? 80 : 12,
+          backgroundColor: isHovering ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0.85)",
           mixBlendMode: isHovering ? "normal" : "difference"
         }}
         transition={{ type: "tween", duration: 0.15 }}
