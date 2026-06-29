@@ -1,6 +1,6 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
+import { useRef, useEffect } from "react";
 
 export default function Hero() {
   const ref = useRef(null);
@@ -10,6 +10,25 @@ export default function Hero() {
   });
   
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      // Calculate mouse position relative to center (-1 to 1)
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      mouseX.set(x);
+      mouseY.set(y);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  // Subtle interactive movement for the lens flare (moves opposite to mouse)
+  const flareX = useTransform(mouseX, [-1, 1], ["30px", "-30px"]);
+  const flareY = useTransform(mouseY, [-1, 1], ["30px", "-30px"]);
 
   return (
     <section ref={ref} className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
@@ -30,9 +49,15 @@ export default function Hero() {
             opacity: { duration: 2.5, delay: 1.8, ease: "easeOut" },
             y: { duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.8 }
           }}
-          className="w-full h-full bg-contain bg-no-repeat bg-center"
+          className="w-full h-full bg-contain bg-no-repeat bg-center relative flex items-center justify-center"
           style={{ backgroundImage: "url('/hero-camera.png')" }}
-        />
+        >
+          {/* Interactive Lens Reflection */}
+          <motion.div 
+            className="w-[80px] h-[80px] md:w-[120px] md:h-[120px] bg-white/30 blur-[15px] rounded-full pointer-events-none mix-blend-overlay"
+            style={{ x: flareX, y: flareY }}
+          />
+        </motion.div>
       </motion.div>
       
       {/* Gradient Overlay for text readability */}
