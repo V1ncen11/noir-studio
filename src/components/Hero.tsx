@@ -69,7 +69,7 @@ export default function Hero() {
       {/* Gradient Overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/60" />
 
-      <div className="relative z-10 text-center px-4 w-full">
+      <div className="relative z-10 text-center px-4 w-full mt-64 md:mt-0">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
