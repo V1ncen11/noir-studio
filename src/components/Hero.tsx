@@ -17,7 +17,7 @@ export default function Hero() {
       <motion.div 
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 0.9, opacity: 0.6 }}
-        transition={{ duration: 2, delay: 2.2, ease: "easeOut" }}
+        transition={{ duration: 2.5, delay: 1.0, ease: "easeOut" }}
         className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-center"
         style={{ backgroundImage: "url('/hero-camera.png')", y }}
       />
@@ -29,7 +29,7 @@ export default function Hero() {
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 2.5, ease: "easeOut" }}
+          transition={{ duration: 1.2, delay: 1.4, ease: "easeOut" }}
           className="text-4xl md:text-6xl lg:text-7xl font-sans font-medium text-white tracking-tight"
         >
           Visuals Before Words.

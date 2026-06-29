@@ -6,10 +6,10 @@ export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
+    // Shorter loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -19,15 +19,15 @@ export default function Preloader() {
         <motion.div
           key="preloader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: "-100%" }}
-          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-xl"
         >
           <div className="overflow-hidden">
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ y: "-100%", opacity: 0 }}
+              exit={{ opacity: 0, scale: 1.05 }}
               transition={{ duration: 1.2, ease: "easeInOut" }}
               className="font-display text-2xl md:text-4xl text-white tracking-[0.2em] flex items-center"
             >
