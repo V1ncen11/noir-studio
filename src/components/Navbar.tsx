@@ -32,11 +32,11 @@ export default function Navbar() {
         </a>
 
         {/* Links Right */}
-        <div className="hidden md:flex gap-12 text-[11px] tracking-[0.2em] font-sans uppercase font-medium text-gray-400">
-          <a href="#portfolio" className="hover:text-white transition-colors">Portfolio</a>
-          <a href="#services" className="hover:text-white transition-colors">Services</a>
-          <a href="#about" className="hover:text-white transition-colors">About</a>
-          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+        <div className="hidden md:flex items-center space-x-12 text-sm font-sans tracking-[0.2em] uppercase">
+          <a href="#" className="text-white hover:text-white transition-colors">PORTFOLIO</a>
+          <a href="#" className="text-white/60 hover:text-white transition-colors">SERVICES</a>
+          <a href="#" className="text-white/60 hover:text-white transition-colors">ABOUT</a>
+          <a href="#contact" className="text-white/60 hover:text-white transition-colors">CONTACT</a>
         </div>
 
         {/* Mobile Menu Button */}
