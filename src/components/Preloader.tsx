@@ -27,7 +27,7 @@ export default function Preloader() {
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.05 }}
+              exit={{ y: "-100%", opacity: 0 }}
               transition={{ duration: 1.2, ease: "easeInOut" }}
               className="font-display text-2xl md:text-4xl text-white tracking-[0.2em] flex items-center"
             >
