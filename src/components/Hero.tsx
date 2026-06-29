@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useRef, useEffect } from "react";
 
 export default function Hero() {
@@ -9,7 +9,13 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
   
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const smoothProgress = useSpring(scrollYProgress, {
+    damping: 30,
+    stiffness: 100,
+    mass: 0.5
+  });
+  
+  const y = useTransform(smoothProgress, [0, 1], ["0%", "40%"]);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
