@@ -15,9 +15,9 @@ export default function Hero() {
     <section ref={ref} className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
       {/* 3D Camera Image Background */}
       <motion.div 
-        initial={{ scale: 1.05, opacity: 0 }}
+        initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 0.9, opacity: 0.6 }}
-        transition={{ duration: 2, ease: "easeOut" }}
+        transition={{ duration: 2, delay: 2.2, ease: "easeOut" }}
         className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-center"
         style={{ backgroundImage: "url('/hero-camera.png')", y }}
       />
@@ -27,9 +27,9 @@ export default function Hero() {
 
       <div className="relative z-10 text-center px-4 w-full">
         <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+          transition={{ duration: 1.2, delay: 2.5, ease: "easeOut" }}
           className="text-4xl md:text-6xl lg:text-7xl font-sans font-medium text-white tracking-tight"
         >
           Visuals Before Words.
