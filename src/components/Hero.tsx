@@ -17,13 +17,23 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
 
       {/* 3D Camera Image Background */}
-      <motion.div 
-        initial={{ scale: 1.15, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.9 }}
-        transition={{ duration: 2.5, delay: 1.8, ease: "easeOut" }}
-        className="absolute inset-0 w-full h-full bg-contain bg-no-repeat bg-center"
-        style={{ backgroundImage: "url('/hero-camera.png')", y }}
-      />
+      <motion.div className="absolute inset-0 w-full h-full" style={{ y }}>
+        <motion.div 
+          initial={{ scale: 1.15, opacity: 0, y: 0 }}
+          animate={{ 
+            scale: 1, 
+            opacity: 0.9,
+            y: ["-10px", "10px", "-10px"]
+          }}
+          transition={{ 
+            scale: { duration: 2.5, delay: 1.8, ease: "easeOut" },
+            opacity: { duration: 2.5, delay: 1.8, ease: "easeOut" },
+            y: { duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.8 }
+          }}
+          className="w-full h-full bg-contain bg-no-repeat bg-center"
+          style={{ backgroundImage: "url('/hero-camera.png')" }}
+        />
+      </motion.div>
       
       {/* Gradient Overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/60" />
