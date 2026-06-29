@@ -33,9 +33,9 @@ export default function Navbar() {
 
         {/* Links Right */}
         <div className="hidden md:flex items-center space-x-12 text-sm font-sans tracking-[0.2em] uppercase">
-          <a href="#" className="text-white hover:text-white transition-colors">PORTFOLIO</a>
-          <a href="#" className="text-white/60 hover:text-white transition-colors">SERVICES</a>
-          <a href="#" className="text-white/60 hover:text-white transition-colors">ABOUT</a>
+          <a href="#portfolio" className="text-white hover:text-white transition-colors">PORTFOLIO</a>
+          <a href="#services" className="text-white/60 hover:text-white transition-colors">SERVICES</a>
+          <a href="#about" className="text-white/60 hover:text-white transition-colors">ABOUT</a>
           <a href="#contact" className="text-white/60 hover:text-white transition-colors">CONTACT</a>
         </div>
 
